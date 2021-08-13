@@ -1,0 +1,39 @@
+﻿@page
+@using WebAppFB.Pages
+@model IndexModel
+@{
+    ViewData["Title"] = "FIzz Buzz Example";
+}
+
+
+<div class="container" id="fbcontainer">
+  <div class="row">
+    <div class="col" style="background-color:lavender;">
+      Input
+    </div>
+    <div class="col" style="background-color:lavender;">
+      Result
+    </div>
+    </div>
+    @foreach (var res in  @Model.FizzBuzzOutput)
+        {
+            <div class="row">
+            <div class="col">
+            @res.request 
+            </div>
+            <div class="col">
+                @{
+                var temp=  res.response.Split('|');
+                foreach (var item in temp)
+                {
+                    <div class="row">
+                         <div class="col">@item</div>
+                    </div>                    
+                }
+                }
+            </div>
+            </div>
+        }  
+  </div>
+
+  
